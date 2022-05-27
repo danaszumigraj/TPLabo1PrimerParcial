@@ -15,7 +15,7 @@ struct
 	int cantidadPersonas;
 	int cantidadHabitaciones;
 	int tipoVivienda;
-	int legajoCensista;
+	int legajoCensistaV;
 
 }typedef Vivienda;
 /**
@@ -37,7 +37,7 @@ int initVivienda(Vivienda* list, int len);
  * @param legajoCensista
  * @return Retorna 0 si no hay errores, -1 si los hay
  */
-int agregarVivienda(Vivienda* list, int len, int idVivienda, char calleVivienda[], int cantidadPersonas, int cantidadHabitaciones, int tipoVivienda, int legajoCensista);
+int agregarVivienda(Vivienda* list, int len, int idVivienda, char calleVivienda[], int cantidadPersonas, int cantidadHabitaciones, int tipoVivienda, int legajoCensistaV);
 /**
  * Busca una vivienda a partir de su ID
  * @param list Array Vivienda
@@ -70,12 +70,19 @@ int ordenarViviendas(Vivienda* list, int len);
  */
 int mostrarViviendas(Vivienda* list, int len);
 /**
- * Muestra una vivienda sola
+ * Muestra una vivienda sola si coincide con el ID dado
  * @param list Array Vivienda
  * @param len Largo del Array
  * @param idVivienda ID previamente ingresado
  */
 void mostrarVivienda(Vivienda* list, int len, int idVivienda);
+/**
+ * Muestra una vivienda sola si coincide con el legajo dado
+ * @param list Array Vivienda
+ * @param len Largo del Array
+ * @param legajoCensistaV Legajo previamente ingresado
+ */
+void mostrarViviendaPorLegajo(Vivienda* list, int len, int legajoCensistaV);
 /**
  * Pide al usuario un ID mediante, lo valida, lo busca. Muestra los datos de la vivienda y muestra un menu de modificaciones, pide el dato que el usuario
  * elija y lo cambia
@@ -88,7 +95,7 @@ void mostrarVivienda(Vivienda* list, int len, int idVivienda);
  * @param tipoVivienda
  * @param legajoCensista
  */
-void modificarVivienda(Vivienda* list, int len, int idVivienda, char calleVivienda[], int cantidadPersonas, int cantidadHabitaciones, int tipoVivienda, int legajoCensista);
+void modificarVivienda(Vivienda* list, int len, int idVivienda, char calleVivienda[], int cantidadPersonas, int cantidadHabitaciones, int tipoVivienda, int legajoCensistaV);
 
 
 

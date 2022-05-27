@@ -47,33 +47,58 @@ int subMenu(char opcion)
 	return opcion;
 }
 
-/*void ModificarDatos(int* idVivienda, char* calleVivienda[], int* cantidadPersonas, int* cantidadHabitaciones, int* tipoViviendaAux)
+void calculoCensistaConMasCensos(int legajoCensista, int* contadorViviendaAna, int* contadorViviendaJuan, int* contadorViviendaSol)
 {
-	int opcionIngresada;
-
-	opcionIngresada = subMenu(opcionIngresada, "\nQue dato desea modificar?\n");
-	do
+	if(legajoCensista == 100)
 	{
-		switch(opcionIngresada)
+		*contadorViviendaAna = *contadorViviendaAna + 1;
+	}
+	else if(legajoCensista == 101)
+	{
+		*contadorViviendaJuan = *contadorViviendaJuan + 1;
+	}
+	else
+	{
+		*contadorViviendaSol = *contadorViviendaSol + 1;
+	}
+
+
+}
+
+void mostrarCensistaConMasCensos(int* contadorViviendaAna, int* contadorViviendaJuan, int* contadorViviendaSol)
+{
+	char censistaAMostrar[25];
+
+	if(*contadorViviendaAna > *contadorViviendaJuan)
+	{
+		strcpy(censistaAMostrar, "Ana");
+		if(*contadorViviendaAna == *contadorViviendaSol)
 		{
-		case 1:
-			utn_getName(&calleVivienda, "\nIngrese la calle de la vivienda\n", "\nEl dato ingresado no es valido\n");
-		break;
-		case 2:
-			utn_getNumber(&cantidadPersonas, "\nIngrese la cantidad de personas\n", "\nEl dato ingresado no es valido\n", 1, 20);
-		break;
-		case 3:
-			utn_getNumber(&cantidadHabitaciones, "\nIngrese la cantidad de habitaciones\n", "\nEl dato ingresado no es valido\n", 1, 20);
-		break;
-		case 4:
-			utn_getNumber(&tipoViviendaAux, "\nIngrese el tipo de vivienda (1.CASA - 2.DEPARTAMENTO - 3.CASILLA - 4.RANCHO)\n", "\nEl dato ingresado no es valido\n", 1, 4);
-		break;
-		case 5:
-			printf("\nVolviendo al menu principal...\n");
-		break;
+			strcpy(censistaAMostrar, "Ana y Sol");
+		}
+	}
+	else if(*contadorViviendaJuan > *contadorViviendaSol)
+		{
+			strcpy(censistaAMostrar, "Juan");
+			if(*contadorViviendaJuan == *contadorViviendaAna)
+			{
+				strcpy(censistaAMostrar, "Juan y Ana");
+			}
+		}
+		else if(*contadorViviendaSol > *contadorViviendaJuan && *contadorViviendaSol > *contadorViviendaAna)
+		{
+			strcpy(censistaAMostrar, "Sol");
+			if(*contadorViviendaSol == *contadorViviendaJuan)
+			{
+				strcpy(censistaAMostrar, "Sol y Juan");
+			}
+		}
+		else if(*contadorViviendaSol == *contadorViviendaJuan && *contadorViviendaSol == *contadorViviendaAna)
+		{
+			strcpy(censistaAMostrar, "Ana, Juan y Sol");
 		}
 
-	}while(opcionIngresada!=5);
 
-}*/
+	printf("\nLos censistas con mas censos realizados fueron %s\n", censistaAMostrar);
+}
 

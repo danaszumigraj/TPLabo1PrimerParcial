@@ -56,35 +56,73 @@ int agregarCensista(Censista* list, int len, int legajoCensista, char nombreCens
 void agregarCensistas(Censista* list, int len, int legajoCensista, char nombreCensista[], int edadCensista, char telefonoCensista[])
 {
 	legajoCensista++;
-	strcpy(nombreCensista, "Ana");
+	strcpy(nombreCensista, "ANA");
 	edadCensista = 34;
 	strcpy(telefonoCensista, "1203-2345");
 	agregarCensista(list, len, legajoCensista, nombreCensista, edadCensista, telefonoCensista);
 
 	legajoCensista++;
-	strcpy(nombreCensista, "Juan");
+	strcpy(nombreCensista, "JUAN");
 	edadCensista = 24;
 	strcpy(telefonoCensista, "4301-54678");
 	agregarCensista(list, len, legajoCensista, nombreCensista, edadCensista, telefonoCensista);
 
 	legajoCensista++;
-	strcpy(nombreCensista, "Sol");
+	strcpy(nombreCensista, "SOL");
 	edadCensista = 47;
 	strcpy(telefonoCensista, "5902-37487");
 	agregarCensista(list, len, legajoCensista, nombreCensista, edadCensista, telefonoCensista);
 }
 
-int mostrarCensistas(Censista* list, int len)
+int mostrarCensistas(Censista* list, int len, Vivienda* listV, int lenVivienda)
 {
 	int retorno = -1;
 	for(int i = 0; i<len; i++)
 	{
-		if(list[i].legajoCensista != VACIO)
+		if(list[i].legajoCensista == 100)
 		{
-			printf("\n/*************************************************************/\n"
+			printf("\n/*******************************************************************************************************************************************/\n"
 					"\nLegajo: %d || Nombre: %s || Edad: %d || Telefono: %s \n",
 					list[i].legajoCensista, list[i].nombreCensista, list[i].edadCensista, list[i].telefonoCensista);
+			for(int j = 0; j<lenVivienda; j++)
+			{
+				if(listV[j].legajoCensistaV == 100)
+				{
+					mostrarViviendaPorLegajo(listV, lenVivienda, 100);
+				}
+
+			}
+
 		}
+		else if(list[i].legajoCensista == 101)
+		{
+			printf("\n/*******************************************************************************************************************************************/\n"
+					"\nLegajo: %d || Nombre: %s || Edad: %d || Telefono: %s \n",
+					list[i].legajoCensista, list[i].nombreCensista, list[i].edadCensista, list[i].telefonoCensista);
+			for(int j = 0; j<lenVivienda; j++)
+			{
+				if(listV[j].legajoCensistaV == 101)
+				{
+					mostrarViviendaPorLegajo(listV, lenVivienda, 101);
+				}
+
+			}
+		}
+			else if(list[i].legajoCensista == 102)
+			{
+				printf("\n/*******************************************************************************************************************************************/\n"
+						"\nLegajo: %d || Nombre: %s || Edad: %d || Telefono: %s \n",
+						list[i].legajoCensista, list[i].nombreCensista, list[i].edadCensista, list[i].telefonoCensista);
+				for(int j = 0; j<lenVivienda; j++)
+				{
+					if(listV[j].legajoCensistaV == 102)
+					{
+						mostrarViviendaPorLegajo(listV, lenVivienda, 102);
+					}
+
+				}
+
+			}
 	}
 
 	return retorno;

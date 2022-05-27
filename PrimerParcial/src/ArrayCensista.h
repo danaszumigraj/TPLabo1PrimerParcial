@@ -50,6 +50,6 @@ void agregarCensistas(Censista* list, int len, int legajoCensista, char nombreCe
  * @param len Largo del Array
  * @return Retorna 0 si no hay errores, -1 si los hay
  */
-int mostrarCensistas(Censista* list, int len);
+int mostrarCensistas(Censista* list, int len, Vivienda* listV, int lenVivienda);
 
 #endif /* ARRAYCENSISTA_H_ */

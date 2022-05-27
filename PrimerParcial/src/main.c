@@ -67,6 +67,11 @@ int main(void)
 	char telefonoCensistaAux[15];
 
 	int flagPrimerIngreso = 0;
+	//CONTADORES SEGUNDA PARTE
+	int contadorViviendaAnaAux = 0;
+	int contadorViviendaJuanAux = 0;
+	int contadorViviendaSolAux = 0;
+
 	//ARRAYS
 	Vivienda listaDeViviendas [QTY_VIVIENDAS];
 	Censista listaDeCensistas [QTY_CENSISTAS];
@@ -105,6 +110,7 @@ int main(void)
 
 				printf("\nLa vivienda fue ingresada correctamente\n");
 				flagPrimerIngreso=1;
+				calculoCensistaConMasCensos(legajoCensistaAux, &contadorViviendaAnaAux, &contadorViviendaJuanAux, &contadorViviendaSolAux);
 			}
 			else
 			{
@@ -152,7 +158,8 @@ int main(void)
 		break;
 		//MOSTRAR LOS CENSISTAS HARDCODEADOS
 		case 'E':
-			mostrarCensistas(listaDeCensistas, QTY_CENSISTAS);
+			mostrarCensistas(listaDeCensistas, QTY_CENSISTAS, listaDeViviendas, QTY_VIVIENDAS);
+			mostrarCensistaConMasCensos(&contadorViviendaAnaAux, &contadorViviendaJuanAux, &contadorViviendaSolAux);
 		break;
 		//SALIR DEL MENU
 		case 'F':
